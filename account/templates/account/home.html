@@ -1,0 +1,604 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from relaxed-kulfi-d9f700.netlify.app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Jan 2023 19:25:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QFS system</title>
+
+  <link rel="shortcut icon" href="{% static 'account/assets_home/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'account/assets_home/images/favicon.ico' %}" type="image/x-icon">
+  <!--- End favicon-->
+
+  <link href="../fonts.googleapis.com/css28da0.css?family=Inter:wght@400;500;600&amp;family=Public+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <!-- End google font  -->
+
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/fontawesome.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/slick.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/magnific-popup.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/swiper-bundle.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/icomoon-font.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/animate.css' %}" />
+
+
+  <!-- Code Editor  -->
+
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'account/assets_home/css/app.min.css' %}" />
+</head>
+
+<body class="light">
+<!-- Smartsupp Live Chat script -->
+
+
+  <header class="site-header site-header--menu-right fugu-header-section" id="sticky-menu">
+    <div class="container-fluid">
+      <nav class="navbar site-navbar">
+        <!-- Brand Logo-->
+        <div class="brand-logo">
+          <a href="index.html">
+            <img src="{% static 'account/assets_home/images/logo/logo-black.svg' %}" alt="" class="light-version-logo">
+          </a>
+        </div>
+        <div class="menu-block-wrapper">
+          <div class="menu-overlay"></div>
+          <nav class="menu-block" id="append-menu-header">
+            <div class="mobile-menu-head">
+              <div class="go-back">
+                <i class="fa fa-angle-left"></i>
+              </div>
+              <div class="current-menu-title"></div>
+              <div class="mobile-menu-close">&times;</div>
+            </div>
+            <ul class="site-menu-main">
+             
+         
+              
+          
+           
+              <li class="header-btn header-btn-l1 fugu-responsive-btn">
+                <a class="fugu-btn fugu-header-btn" href="{% url 'account:register_user' %}">
+                  Get Started
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+        <div class="header-btn header-btn-l1 ms-auto d-none d-xs-inline-flex">
+          <a class="fugu-btn fugu-header-btn" href="{% url 'account:register_user' %}">
+            Get Started
+          </a>
+        </div>
+        <!-- mobile menu trigger -->
+        <div class="mobile-menu-trigger">
+          <span></span>
+        </div>
+        <!--/.Mobile Menu Hamburger Ends-->
+      </nav>
+    </div>
+  </header>
+  <!--End landex-header-section -->
+
+  <!--submit email before continue -->
+  <!--
+  <div class="modal fade" id="subscribeModal"  data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="subscribeModalLabel">Unlock a Better Experience - Stay Connected with Us</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Welcome to [Your Website Name]!</strong> We're thrilled to have you here, and we'd like to invite you to become a part of our vibrant online community. By sharing your email address with us, you'll unlock a world of benefits tailored just for you.
+                  <p>submit your email to continue.</p>
+                </p>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="modal fade" id="subscribeModal" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog" >
+  <div class="modal-content" >
+
+  <div class="p-3" style="background-color: #F0E9E1; border-radius: 10px;">
+      <div >
+          <h4 class="text-center">Unlock a Better Experience - Stay Connected with Us</h4>
+          <p><small><strong>Welcome to [Your Website Name]!</strong> We're thrilled to have you here, and we'd like to invite you to become a part of our vibrant online community. By sharing your email address with us, you'll unlock a world of benefits tailored just for you.
+          </small>
+            <p>submit your email to continue.</p>
+          </p>
+          <form method="POST">
+            {% csrf_token %}
+              <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="modal-footer">
+      <button type="submit" class="btn btn-dark ms-1" style="width: 100%;">Submit</button>
+      </div>
+          </form>
+      </div>
+  </div>
+  
+      
+
+  </div>
+  </div>
+</div>
+
+
+  <div class="fugu-hero-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-7">
+          <div class="fugu-hero-content">
+            <h1 class="wow fadeInUpX" data-wow-delay="0s">Welcome to<br> QFS system</h1>
+            <p class="wow fadeInUpX" data-wow-delay="0.25s">Built on Decentralized network inspired from the vast loop holes in the cryptograph technology
+
+We protect your wallet system
+
+<br>
+
+</p>
+            
+            <img src="{% static 'account/assets_home/images/nano.png' %}" height="200px">
+            <a class="fugu--btn fugu--menu-btn2" href="{% url 'account:login_user' %}">
+              Connect Wallet
+            </a>
+            <div class="fugu-app-btn-wrap wow fadeInUpX" data-wow-delay="0.40s">
+              <a class="fugu-app-btn" href="#"><img src="{% static 'account/assets_home/images/all-img/app-store.png' %}" alt=""></a>
+              <a class="fugu-app-btn" href="#"><img src="{% static 'account/assets_home/images/all-img/play-store.png' %}" alt=""></a>
+            </div>
+            <div class="fugu-hero-client-area wow fadeInUpX" data-wow-delay="0.50s">
+              <div class="fugu-hero-client-wrap">
+                <div class="fugu-hero-client-thumb">
+                  <img src="{% static 'account/assets_home/images/all-img/client.png' %}" alt="">
+                </div>
+                <div class="fugu-hero-client-data">
+                  <h3>64,739</h3>
+                  <p>Happy Customers</p>
+                </div>
+              </div>
+              <div class="fugu-hero-client-rating">
+                <h3>4.8/5</h3>
+                <ul>
+                  <li><img src="{% static 'account/assets_home/images/svg/star1.svg' %}" alt=""></li>
+                  <li><img src="{% static 'account/assets_home/images/svg/star1.svg' %}" alt=""></li>
+                  <li><img src="{% static 'account/assets_home/images/svg/star1.svg' %}" alt=""></li>
+                  <li><img src="{% static 'account/assets_home/images/svg/star1.svg' %}" alt=""></li>
+                  <li><img src="{% static 'account/assets_home/images/svg/star2.svg' %}" alt=""></li>
+                  <li>Rating</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-5">
+          <div class="fugu-hero-thumb">
+            <img src="{% static 'account/assets_home/images/all-img/hand-mocup.png' %}" alt="">
+            <div class="fugu-shape2">
+              <img src="{% static 'account/assets_home/images/shape/shape2.png' %}" alt="">
+            </div>
+            <div class="fugu-hero-star">
+              <img src="{% static 'account/assets_home/images/all-img/star-shape.png' %}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fugu-shape1">
+      <img src="{% static 'account/assets_home/images/shape/shape1.png' %}" alt="">
+    </div>
+  </div>
+  <!-- End hero section -->
+
+  <div class="fugu-client-section bg-gray-800">
+    <div class="container">
+      <div class="fugu-client-title text-white">
+        <h5>Trusted by 1600+ of the world's most popular companies</h5>
+      </div>
+      <div class="fugu-client-slider">
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client1.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client2.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client3.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client4.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client5.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client1.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client2.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client3.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client4.png' %}" alt="">
+        </div>
+        <div class="fugu-brand-logo">
+          <img src="{% static 'account/assets_home/images/all-img/client5.png' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End client section -->
+
+  <div class="section bg-warning-400 fugu-section-padding3">
+    <div class="container">
+      <div class="fugu-section-title title-large">
+        <h2>  what is qfs system? </h2>
+        <p>
+           The Quantum Financial System, or QFS for short, has become a popular technical term, especially within the finance industry. As digital technology has grown in popularity, cybercrime has also increased significantly. As we become more dependent on digital media, cyber criminals stand a greater chance of getting away with unfair practices. In this situation, QFS saves the day. The future-proof system is hailed as the way forward for all financial transactions. The program is not designed to run on a conventional computer but rather on a satellite-based quantum computer. Quantum Financial System is heavily secured by Secret Space Programs (SSP), providing the highest level of security.
+ 
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="fugu-iconbox-wrap wow fadeInUpX" data-wow-delay="0s">
+            <div class="fugu-iconbox-icon">
+              <img src="{% static 'account/assets_home/images/all-img/icon1.png' %}" alt="">
+            </div>
+            <div class="fugu-iconbox-data">
+              <h4>Industry-leading security</h4>
+              <p>Security tokens are digital assets that represent & transferred ownership rights to a blockchain token.</p>
+              <a class="fugu-icon-btn" href="#">Discover More <img src="{% static 'account/assets_home/images/svg/arrow-black-right.svg' %}" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="fugu-iconbox-wrap wow fadeInUpX" data-wow-delay=".20s">
+            <div class="fugu-iconbox-icon">
+              <img src="{% static 'account/assets_home/images/all-img/icon2.png' %}" alt="">
+            </div>
+            <div class="fugu-iconbox-data">
+              <h4>Ownership over your coins</h4>
+              <p>The most reliable way to prove ownership of crypto currencies is to sign a specified message with a key.</p>
+              <a class="fugu-icon-btn" href="#">Discover More <img src="{% static 'account/assets_home/images/svg/arrow-black-right.svg' %}" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="fugu-iconbox-wrap wow fadeInUpX" data-wow-delay=".30s">
+            <div class="fugu-iconbox-icon">
+              <img src="{% static 'account/assets_home/images/all-img/icon3.png' %}" alt="">
+            </div>
+            <div class="fugu-iconbox-data">
+              <h4>Cold storage for most users</h4>
+              <p>A cold wallet, otherwise known as a hardware wallet cold storage, is a physical device that keeps offline.</p>
+              <a class="fugu-icon-btn" href="#">Discover More <img src="{% static 'account/assets_home/images/svg/arrow-black-right.svg' %}" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="fugu-iconbox-wrap wow fadeInUpX" data-wow-delay=".40s">
+            <div class="fugu-iconbox-icon">
+              <img src="{% static 'account/assets_home/images/all-img/icon4.png' %}" alt="">
+            </div>
+            <div class="fugu-iconbox-data">
+              <h4>Crime insurance against theft</h4>
+              <p>Crime insurance protects a company from loss of money, securities, inventory from fraud events.</p>
+              <a class="fugu-icon-btn" href="#">Discover More <img src="{% static 'account/assets_home/images/svg/arrow-black-right.svg' %}" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End section -->
+
+  <div class="section bg-warning-300 fugu-section-padding2 z-index">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="fugu-apps-thumb" id="rotatetwo">
+            <img class="wow fadeInUpX" data-wow-delay=".10s" src="{% static 'account/assets_home/images/all-img/mocup1.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-10 d-flex align-items-center">
+          <div class="fugu-default-content large-content">
+            <h2>Why secure your wallet ?</h2>
+            <p>It comes as no surprise that banks, as well as other financial institutions, are the most common targets of cybercrime. Consequently, many banks have updated their procedures and systems in an effort to prevent such crimes from occurring. It follows that financial institutions are finally taking advantage of the new technologies available to help them meet the expectations of their customers.
+
+Just like our traditional banking system with various loop hole which loss of billions dollars annually to hackers its even more common with the block system. This birthed our service creating a temporal authentical addressing the original backlog system tradition for blockchain network so you virtually connect to system and create a sheild to protec your self from scams</p>
+            <div class="fugu-btn-wrap">
+              <a class="fugu-btn" href="#">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fugu-shape3">
+      <img src="{% static 'account/assets_home/images/shape/shape2.png' %}" alt="">
+    </div>
+  </div>
+  <!-- End section -->
+
+  <div class="section bg-warning-400 fugu-section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-1 order-lg-2">
+          <div class="fugu-video-thumb wow fadeInUpX" data-wow-delay=".20s">
+            <img src="{% static 'account/assets_home/images/all-img/video-thumb.png' %}" alt="">
+            <a class="fugu-popup" href="">
+              <img src="{% static 'account/assets_home/images/all-img/video-btn.png' %}" alt="">
+              <div class="fugu-play-btn">
+                <img src="{% static 'account/assets_home/images/all-img/play-btn.png' %}" alt="">
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-10 d-flex align-items-center">
+          <div class="fugu-default-content large-content">
+            <h2>Multi Chain Defense System</h2>
+            <p>User have been seen in various occasion to have lost funds without anyway of getting it retrived the system was not designed to loss funds accross multi-chain ,so we dived deeper into the blockchain and we found way lost funds could be retrived my a short creation and roll-back functionality only accessiblefas with our client accross the globe</p>
+            <div class="fugu-icon-list">
+              <ul>
+                <li><img src="{% static 'account/assets_home/images/svg/check1.svg' %}" alt="">Earn a 10-100% bonus on your weekly round-ups.</li>
+                <li><img src="{% static 'account/assets_home/images/svg/check1.svg' %}" alt="">Save money when you shop at some of your spots.</li>
+                <li><img src="{% static 'account/assets_home/images/svg/check1.svg' %}" alt="">Automatically invest part of every pay of crypto.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End section -->
+
+  <div class="section bg-warning-300 fugu-section-padding z-index">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="fugu-apps-thumb fugu-apps-thumb2" id="rotatethree">
+            <img class="wow fadeInUpX" data-wow-delay=".10s" src="{% static 'account/assets_home/images/all-img/mocup2.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-10 d-flex align-items-center">
+          <div class="fugu-default-content large-content">
+            <h2>Open an account in 3 easy steps</h2>
+           
+            <div class="fugu-icon-list2">
+              <ul>
+                <li>
+                  <div class="fulo-list-icon">
+                    <img src="{% static 'account/assets_home/images/svg/download.svg' %}" alt="">
+                  </div>
+                  <h4>Create an account easily</h4>
+                  <p>Create an account by clicking on the link wallet button.</p>
+                </li>
+                <li>
+                  <div class="fulo-list-icon">
+                    <img src="{% static 'account/assets_home/images/svg/link.svg' %}" alt="">
+                  </div>
+                  <h4>Link your wallet </h4>
+                  <p>link your personal wallet at the on the dashboard.</p>
+                </li>
+                <li>
+                  <div class="fulo-list-icon">
+                    <img src="{% static 'account/assets_home/images/svg/lightning-bolt.svg' %}" alt="">
+                  </div>
+                  <h4>keep your crypto 100% secure</h4>
+                  <p>Although many people prefer to link multiple wallets for more security.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fugu-shape3">
+      <img src="{% static 'account/assets_home/images/shape/shape2.png' %}" alt="">
+    </div>
+  </div>
+  <!-- End apps section -->
+
+
+  <!-- End testimonail section -->
+
+  <div class="section bg-warning-300 fugu-section-padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 position-relative">
+          <div class="fugu-default-content large-content">
+            <h2>Frequently asked questions </h2>
+            <p>Frequently asked questions about QFS system. The crypto security for conducting trusted transactions.</p>
+            <a href="#" class="fugu-faq-btn">Don't find the answer? Contact us here</a>
+          </div>
+        </div>
+        <div class="col-lg-5 offset-lg-2">
+          <div class="fugu-accordion-wrap">
+            <div class="fugu-accordion-item">
+              <h4>Is it safe to use QFS system?</h4>
+              <p>Yes,QFS system and are safe and use security measures that are industry-standard or above for U.S.-based.</p>
+            </div>
+            <div class="fugu-accordion-item">
+              <h4>How do I connect QFS system to my crypto wallet?</h4>
+              <p>Once you've approved a connection request from the app the fugu can send transaction requests to wallet, which is the on your must also manually approve in the Wallet.</p>
+            </div>
+            <div class="fugu-accordion-item">
+              <h4>How do you make money with QFS system?</h4>
+              <p>This is the most common way of earning money from crypto currencies. Investors buy coins such as Bitcoin, Litecoin, and Ethereum, Ripple, and more and wait until their value rises.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End faq -->
+
+  <div class="fugu-cta-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="fugu-default-content large-content">
+            <h2>Download now to secure crypto safely</h2>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex align-items-center">
+          <div class="fugu-cta-app-btn-wrap">
+            <a class="fugu-app-btn wow fadeInUpX" data-wow-delay="0s" href="#"><img src="{% static 'account/assets_home/images/all-img/app-store.png' %}" alt=""></a>
+            <a class="fugu-app-btn wow fadeInUpX" data-wow-delay=".20s" href="#"><img src="{% static 'account/assets_home/images/all-img/play-store.png' %}" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End cta section -->
+
+  <div class="fugu-go-top">
+    <img src="{% static 'account/assets_home/images/svg/arrow-black-right.svg' %}" alt="">
+  </div>
+
+  <!-- Footer  -->
+
+  <footer class="fugu-footer-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="fugu-textarea">
+            <div class="fugu-footer-logo">
+              <img src="{% static 'account/assets_home/images/logo/logo-black.svg' %}" alt="" class="light-version-logo">
+            </div>
+            <p>Where all patriots are recommended to backup their digital assets and funds for the global event and blackout coming soon!</p>
+            <p class="fugu-copywright">&copy; Copyright 2023, All Rights Reserved </p>
+          </div>
+        </div>
+        <div class="col-lg-2 offset-lg-1 col-md-4 col-sm-4">
+          <div class="fugu-footer-menu">
+            <span>Product</span>
+            <ul>
+              <li><a href="#">Invest</a></li>
+              <li><a href="#">Crypto</a></li>
+              <li><a href="#">Cash Card</a></li>
+              <li><a href="#">Learn</a></li>
+              <li><a href="#">Snacks</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-4">
+          <div class="fugu-footer-menu fugu-custom-margin">
+            <span>Company</span>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Blog post</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-4">
+          <div class="fugu-footer-menu">
+            <span>Contact</span>
+            <ul>
+              <li><a href=""> Signal contact : +1 540 355 4312</a></li>
+              <li><a href="mailto:support@qfsledger.digital">support@qfsledger.digital</a></li>
+            </ul>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <div class="fugu-preloader">
+    <div class="fugu-spinner">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" />
+      </svg>
+    </div>
+    <div class="fugu-title">loading...</div>
+  </div>
+
+  <!-- scripts -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{% static 'account/assets_home/js/jquery-3.6.0.min.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/menu/menu.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/slick.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/countdown.js' %}"></script>
+  <script src="{% static 'account/assets_home/js/wow.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3&amp;key=AIzaSyArZVfNvjnLNwJZlLJKuOiWHZ6vtQzzb1Y"></script>
+
+  <script src="{% static 'account/assets_home/js/app.js' %}"></script>
+</body>
+<script>
+ $(document).ready(function(){
+  
+  $('#subscribeModal').modal('show');
+  document.querySelector('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        var data = {}
+        const csrf = document.getElementsByName("csrfmiddlewaretoken")
+        data['csrfmiddlewaretoken'] = csrf[0].value
+        data['email'] = email
+        console.log(data)
+        $.ajax({
+        type: 'POST',
+        url: "{% url 'account:submit_email' %}",
+        data:data,
+        success:function(response){
+          if(response.results){
+            $('#subscribeModal').modal('hide');
+          }else{
+            $('#subscribeModal').modal('show');
+          }
+          
+       
+        },
+        error: function(response){
+        alert("error sending data")
+        }
+
+    })
+        
+        // Add your code to process the email (e.g., send it to a server or save it to a database)
+        
+        // Close the modal
+        $('#subscribeModal').modal('show');
+    });
+ })
+
+</script>
+
+<!-- Mirrored from relaxed-kulfi-d9f700.netlify.app/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Jan 2023 19:26:55 GMT -->
+</html>

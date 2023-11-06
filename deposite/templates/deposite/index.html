@@ -1,0 +1,110 @@
+
+{% load static %}
+<!doctype html>
+    <html lang="zxx">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="theme-color" content="#000000">
+        <title>QFS world assets</title>
+       
+        <link rel="icon" type="image/png" href='{% static "deposite/assets/img/favicon.png" %}' sizes="32x32">
+        <link rel="apple-touch-icon" sizes="180x180" href= '{% static "deposite/assets/img/icon/192x192.png" %}'>
+        <link rel="stylesheet" href= '{% static "deposite/assets/css/style.css" %}'>
+        <link rel="manifest" href= '{% static "deposite/__manifest.json" %}'>
+    </head>
+    
+    <body>
+    
+        <!-- loader -->
+        <div id="loader">
+            <img src= '{% static "deposite/assets/img/loading-icon.png" %}' alt="icon" class="loading-icon">
+        </div>
+        <!-- * loader -->
+    
+        <!-- App Header -->
+        <div class="appHeader">
+            <div class="left">
+                <a href="#" class="headerButton goBack">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </a>
+            </div>
+            <div class="pageTitle">Fund wallet</div>
+            <div class="right"></div>
+        </div>
+        <!-- * App Header -->
+    
+        <!-- App Capsule -->
+        <div id="appCapsule">
+    
+    
+            <div class="section inset mt-2" style="padding-bottom:50px">
+                <div class="section-title">
+                            
+    
+                            1) Make sure your current address is the sending address<br><br>
+                            
+                            
+                            
+                            2) Send to your desired payment method below<br><br>
+                            
+                            3) Click proceed to confirm your payment<br><br></div>
+                           
+    
+    
+    
+    
+    <div class="listview-title mt-2"></div>
+            <ul class="listview simple-listview inset">
+                {% for item in payments_methods %}
+
+                <li>  {{item.crypto}}   <div class="iconbox">
+                    <a href="?paywith={{item.slug}}">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                               </a>
+                                </div></li>
+
+                {% endfor %}
+              
+                
+                
+    
+
+    
+                        </ul>
+    
+    
+    
+        
+               
+            </div>
+    
+    
+        </div>
+        <!-- * App Capsule -->
+    
+        <!-- App Bottom Menu -->
+        <div class="appBottomMenu" style="padding-top:10px">
+        <div  id="ytWidget"></div><script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=dark&autoMode=false" type="text/javascript"></script>
+                    
+        </div>
+        <!-- * App Bottom Menu -->
+    
+    
+        <!-- ========= JS Files =========  -->
+        <!-- Bootstrap -->
+        <script src= '{% static "deposite/assets/js/lib/bootstrap.bundle.min.js" %}'></script>
+        <!-- Ionicons -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- Splide -->
+        <script src= '{% static "deposite/assets/js/plugins/splide/splide.min.js" %}'></script>
+        <!-- Base Js File -->
+        <script src= '{% static "deposite/assets/js/base.js" %}'></script>
+    
+    
+    </body>
+    </html>
