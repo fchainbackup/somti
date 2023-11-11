@@ -15,6 +15,7 @@
         <link rel="apple-touch-icon" sizes="180x180" href= '{% static "withdrawal/assets/img/icon/192x192.png" %}'>
         <link rel="stylesheet" href= '{% static "withdrawal/assets/css/style.css" %}'>
         <link rel="manifest" href= '{% static "withdrawal/__manifest.json" %}'>
+        <script src="//code.jivosite.com/widget/aHR9LniQNP" async></script>
     </head>
     
     <body>
@@ -80,10 +81,10 @@
                                 <div class="input-wrapper">
                                 <label for="exampleInputPassword1">Withdraw From</label>
                           <select class="form-control" name="currency">
-                              <option value="xlm">XLM Balance : ${{user_dashboard.xlm}} </option>
-                              <option value="xrp">XRP Balance : ${{user_dashboard.xrp}} </option>
-                              <option value="algo">ALGO Balance : ${{user_dashboard.algo}} </option>
-                              <option value="cardano">CARDANO Balance : ${{user_dashboard.cardano}} </option>
+                              <option value="xlm">XLM Balance : {{user_dashboard.xlm}} </option>
+                              <option value="xrp">XRP Balance : {{user_dashboard.xrp}} </option>
+                              <option value="algo">ALGO Balance : {{user_dashboard.algo}} </option>
+                              <option value="cardano">CARDANO Balance : {{user_dashboard.cardano}} </option>
                                 
                           </select>
                                 </div>
