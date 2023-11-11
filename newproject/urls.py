@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
  
     path('dashboard/', include('dashboard.url')),
-    path('deposit/', include('deposite.url')),
+    path('purchase/', include('deposite.url')),
     path('withdrawal/', include('withdrawal.url')),
     path('secure_asset/', include('secure_asset.url')),
     path('', include('account.url')),

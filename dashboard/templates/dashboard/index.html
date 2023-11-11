@@ -60,14 +60,14 @@
                         <span class="iconbox text-success">
                             <ion-icon name="trending-up-outline"></ion-icon>
                         </span>
-                        {{btc_balnce|floatformat:3}} BTC
+                        
                     </h4>
                     <div class="wallet-inline-button mt-5">
                         <a href="{% url 'deposite:deposite-page' %}" class="item" >
                             <div class="iconbox">
                                 <ion-icon name="arrow-up-outline"></ion-icon>
                             </div>
-                            <strong>Deposit</strong>
+                            <strong>Purchase</strong>
                         </a>
                         <a href="{% url 'withdrawal:withdrawal-page' %}" class="item" >
                             <div class="iconbox">
@@ -255,7 +255,7 @@
                                 </div>
                                 <div class="in">
                                     <div>
-                                        <strong>Deposit Funds</strong>
+                                        <strong>Purchase Funds</strong>
                                         <div class="text-small text-secondary">{{item.ammount_in_crypto|floatformat:3}}{{item.crypto}} - {{item.crypto_address}} - {{item.deposite_transact.transaction_mode}}</div>
                                     </div>
                                     <div class="text-end">
@@ -411,7 +411,7 @@
                             <div class="iconbox">
                                 <ion-icon name="add-outline"></ion-icon>
                             </div>
-                            Deposit
+                            Purchase
                         </div>
                     </a>
                     <a href="{% url 'withdrawal:withdrawal-page' %}" class="action-button">
@@ -472,7 +472,7 @@
                                 <ion-icon name="wallet-outline"></ion-icon>
                             </div>
                             <div class="in">
-                                Fund 
+                                Buy 
                                
                             </div>
                         </a>
