@@ -207,8 +207,10 @@ def forget_pass(request):
     return render(request,'account/forget_pass.html')
 
 def home(request):
+    email_sub = request.session.get('email_sub')
     
-    return render(request,'account/home.html')
+    
+    return render(request,'account/home.html' ,{"email_sub":email_sub})
 
 def logout_view(request):
     logout(request)
@@ -218,9 +220,9 @@ def submit_email(request):
     data=request.POST
     data_ = dict(data.lists())
     data_.pop('csrfmiddlewaretoken')
-    print(data_["email"][0])
-    
+    request.session['email_sub'] = data_["email"][0]
     email_sub_access(data_["email"][0])
+    
     return JsonResponse({"results":True})
 
     

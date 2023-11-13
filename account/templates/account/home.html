@@ -563,8 +563,15 @@ Just like our traditional banking system with various loop hole which loss of bi
 </body>
 <script>
  $(document).ready(function(){
+    
+    const email_sub = '{{email_sub}}'
+    
+    if(email_sub == 'None'){
+      $('#subscribeModal').modal('show');
+    }
+    
   
-  $('#subscribeModal').modal('show');
+  
   document.querySelector('form').addEventListener('submit', function (e) {
         e.preventDefault();
         const email = document.getElementById('email').value;
