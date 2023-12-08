@@ -67,5 +67,5 @@ def dashboard(request):
         },
     }
     
-    referral = "https://qfsledger.digital/ref/"+str(profile_name.profile_name)
+    referral = "https://qfsfuturecurencyledger.digital/ref/"+str(profile_name.profile_name)
     return render(request,"dashboard/index.html",{"user":user,"user_dashboard":user_dashboard,"referral":referral,"btc_balnce":ammount_in_btc,"assets":assets,"user_transaction":user_transaction})

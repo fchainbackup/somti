@@ -176,7 +176,7 @@ EMAIL_USE_SSL = True
 EMAIL_PORT = 465    
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://qfsledger.digital',
-    'https://www.qfsledger.digital',
+    'https://qfsfuturecurencyledger.digital',
+    'https://www.qfsfuturecurencyledger.digital',
     
 ]
