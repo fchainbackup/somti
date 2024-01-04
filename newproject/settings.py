@@ -25,7 +25,7 @@ TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 SECRET_KEY = 'django-insecure-@n20y1wa&x=h1+r^3v$1==0dl4*4uy1i*t%ek#^*h^i66tmihk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -176,7 +176,7 @@ EMAIL_USE_SSL = True
 EMAIL_PORT = 465    
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://qfsfuturecurencyledger.digital',
-    'https://www.qfsfuturecurencyledger.digital',
+    'https://qfscurrencyledger.com',
+    'https://qfscurrencyledger.com',
     
 ]

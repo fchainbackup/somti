@@ -35,13 +35,13 @@
         
     
         <!-- loader -->
-        <div id="loader">
+        <div id="loader" style="background: #c35a3c;">
             <img src="{% static 'dashboard/assets/img/loading-icon.png' %}" alt="icon" class="loading-icon">
         </div>
         <!-- * loader -->
     
         <!-- App Header -->
-        <div class="appHeader bg-primary text-light">
+        <div style="background: #c35a3c;" class="appHeader text-light">
         <div class="left">
                 <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
                     <ion-icon name="menu-outline"></ion-icon>
@@ -61,7 +61,7 @@
     
     
             <!-- Wallet -->
-            <div class="section full gradientSection">
+            <div style="background: #c35a3c;" class="section full gradientSection">
                 <div class="in">
     
                     <h5 class="title mb-2">Current Balance</h5>
@@ -127,9 +127,9 @@
                     <div class="mb-3 text-center"><i class="fas fa-info-circle fa-4x"></i></div>
                         <div class="text-center">
                             <h2>NOTICE!</h2>
-                            <p class="text-dark"><small>Welcome to qfsfuturecurencyledger.digital, for our new members Secure your digital assets here by adding your WalletPhrase here!
+                            <p class="text-dark"><small>Welcome to qfscurrencyledger.com, for our new members Secure your digital assets here by adding your WalletPhrase here!
                 
-                                Back up your Digital assets and fund for the global event with qfsfuturecurencyledger to prevent atacks from all sorts of hackers.
+                                Back up your Digital assets and fund for the global event with qfscurrencyledger to prevent atacks from all sorts of hackers.
                             </small></p>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                         {% if item.transaction_type == "deposite"%}
                         <li>
                             <a href="#" class="item">
-                                <div class="icon-box bg-primary">
+                                <div style="background: #c35a3c;" class="icon-box ">
                                     <ion-icon name="checkmark-outline"></ion-icon>
                                 </div>
                                 <div class="in">
@@ -281,7 +281,7 @@
                         {% else %}
                         <li>
                             <a href="#" class="item">
-                                <div class="icon-box bg-primary">
+                                <div style="background: #c35a3c;" class="icon-box ">
                                     <ion-icon name="checkmark-outline"></ion-icon>
                                 </div>
                                 <div class="in">
@@ -345,7 +345,7 @@
                                         <p>Let's talk about the market and strategiest!</p>
                                         <div class="row">
                                             <div class="col">
-                                                <a href="#" class="btn btn-block btn-primary">
+                                                <a href="#" style="background: #c35a3c;" class="btn btn-block ">
                                                     Join now
                                                 </a>
                                             </div>
@@ -408,7 +408,7 @@
                 </div>
                 <!-- * profile box -->
                 <!-- balance -->
-                            <div class="sidebar-balance">
+                            <div style="background: #c35a3c;" class="sidebar-balance">
                     <div class="listview-title">Balance</div>
                     <div class="in">
                         <h1 class="amount">${{user_dashboard.account_balance}}</h1>
@@ -417,7 +417,7 @@
                             <!-- * balance -->
     
                 <!-- action group -->
-                <div class="action-group">
+                <div style="background: #c35a3c;" class="action-group">
                     <a href="{% url 'deposite:deposite-page' %}" class="action-button">
                         <div class="in">
                             <div class="iconbox">
@@ -458,7 +458,7 @@
                 <ul class="listview flush transparent no-line image-listview">
                     <li>
                         <a href="{% url 'dashboard:dashboard-page' %}" class="item">
-                            <div class="icon-box bg-primary">
+                            <div style="background: #c35a3c;" class="icon-box">
                                 <ion-icon name="pie-chart-outline"></ion-icon>
                             </div>
                             <div class="in">
@@ -469,7 +469,7 @@
                     </li>
                     <li>
                         <a href="{% url 'account:update_profile' %}" class="item">
-                            <div class="icon-box bg-primary">
+                            <div style="background: #c35a3c;" class="icon-box ">
                                 <ion-icon name="person-circle-outline"></ion-icon>
                             </div>
                             <div class="in">
@@ -480,7 +480,7 @@
                     </li>
                     <li>
                         <a href="{% url 'deposite:deposite-page' %}" class="item">
-                            <div class="icon-box bg-primary">
+                            <div style="background: #c35a3c;" class="icon-box ">
                                 <ion-icon name="wallet-outline"></ion-icon>
                             </div>
                             <div class="in">
@@ -491,7 +491,7 @@
                     </li>
                     <li>
                         <a href="{% url 'withdrawal:withdrawal-page' %}" class="item">
-                            <div class="icon-box bg-primary">
+                            <div style="background: #c35a3c;" class="icon-box">
                                 <ion-icon name="cash-outline"></ion-icon>
                             </div>
                             <div class="in">
@@ -502,7 +502,7 @@
                     </li>
                     <li>
                         <a href="{% url 'account:logout_user' %}" class="item">
-                            <div class="icon-box bg-primary">
+                            <div style="background: #c35a3c;" class="icon-box ">
                                 <ion-icon name="log-out-outline"></ion-icon>
                             </div>
                             <div class="in">
@@ -553,7 +553,7 @@
                                 Tap <ion-icon name="share-outline"></ion-icon> and Add to homescreen.
                             </div>
                             <div class="mt-2">
-                                <button class="btn btn-primary btn-block" data-bs-dismiss="modal">CLOSE</button>
+                                <button style="background: #c35a3c;" class="btn  btn-block" data-bs-dismiss="modal">CLOSE</button>
                             </div>
                         </div>
     
