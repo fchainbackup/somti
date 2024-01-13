@@ -25,7 +25,7 @@ TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 SECRET_KEY = 'django-insecure-@n20y1wa&x=h1+r^3v$1==0dl4*4uy1i*t%ek#^*h^i66tmihk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
